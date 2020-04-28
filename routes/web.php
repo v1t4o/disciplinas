@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'DisciplinaController@index');
-Route::resource('disciplinas', 'DisciplinaController');
+Route::resource('/disciplinas', 'DisciplinaController');
