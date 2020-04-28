@@ -91,4 +91,20 @@ class DisciplinaController extends Controller
         $disciplina->delete();
         return redirect('/');
     }
+
+    public function createTurma($disciplina_id){
+        return view('disciplinas.turmas.create', compact('disciplina_id'));
+    }
+
+    public function storeTurma(Request $request, Disciplina $disciplina){
+        $turma = new \App\Turma;
+        $turma->ministrante = $request->ministrante;
+        $turma->inicio = $request->inicio; #desafio! Receber dd/mm/YYYY
+        $turma->fim = $request->fim; #desafio: idem
+        $turma->bibliografia = $request->bibliografia;
+        $turma->disciplina_id = $disciplina->id;
+
+        $disciplina->turmas()->save($turma);
+        return redirect("/disciplinas/$disciplina->id");
+    }
 }
