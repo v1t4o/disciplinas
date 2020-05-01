@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Disciplina;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class DisciplinaController extends Controller
 {
@@ -103,8 +104,8 @@ class DisciplinaController extends Controller
     public function storeTurma(Request $request, Disciplina $disciplina){
         $turma = new \App\Turma;
         $turma->ministrante = $request->ministrante;
-        $turma->inicio = $request->inicio; #desafio! Receber dd/mm/YYYY
-        $turma->fim = $request->fim; #desafio: idem
+        $turma->inicio = Carbon::createFromFormat('d/m/Y', $request->inicio);
+        $turma->fim = Carbon::createFromFormat('d/m/Y', $request->fim);
         $turma->bibliografia = $request->bibliografia;
         $turma->disciplina_id = $disciplina->id;
 
