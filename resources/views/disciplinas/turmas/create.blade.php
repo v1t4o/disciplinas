@@ -7,9 +7,9 @@
 
     Ministrante: <input name="ministrante">
 
-    Data início: <input name="inicio">
+    Data início: <input class="datepicker" name="inicio" autocomplete="off">
 
-    Data fim: <input name="fim">
+    Data fim: <input class="datepicker" name="fim" autocomplete="off">
 
     Bibliografia: <textarea name="bibliografia"></textarea>
 
